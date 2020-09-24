@@ -4,7 +4,7 @@ import os
 import numpy as np
 
 def disparity(x_r, y_r, x_l, y_l):
-    return np.sqrt(np.power((x_r - x_l),2) + np.power(y_r - y_l, 2))
+    return x_l - x_r
 
 
 def on_EVENT_LBUTTONDOWN_r(event, x, y, flags, param):
@@ -40,10 +40,9 @@ def on_EVENT_LBUTTONDOWN_l(event, x, y, flags, param):
 
 if __name__ == "__main__":
     
-    filepath = os.path.join(os.getcwd(),'Dataset/object/')
+    filepath = os.path.join('Dataset', 'object')
     left_obj  = os.path.join(filepath , "left_obj","1.jpeg")
     right_obj = os.path.join(filepath , "right_obj","1.jpeg")
-
     r_img = cv2.imread(right_obj)
     l_img = cv2.imread(left_obj)
 
